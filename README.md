@@ -1,4 +1,4 @@
-# claude-config
+# Claude-skills
 
 Global Claude Code configuration: one `CLAUDE.md` of always-on rules plus a suite of lazy-loaded skills. Goal: make any model in Claude Code — Haiku, Sonnet, Opus — work with the precision, verification discipline, and honesty of the strongest tier.
 
@@ -26,7 +26,7 @@ Process-level skills (TDD loop, systematic debugging, brainstorming, verificatio
 ## Install
 
 ```bash
-git clone https://github.com/RadekCihlar/claude-config.git
+git clone https://github.com/RadekCihlar/Claude-skills.git
 # copy CLAUDE.md and skills/ into ~/.claude/  (or clone into an empty ~/.claude and let
 # Claude Code create its runtime state around it — the .gitignore tracks only these files)
 ```

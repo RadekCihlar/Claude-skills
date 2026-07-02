@@ -112,6 +112,6 @@ These rules encode the discipline of the strongest models. Follow them **literal
 ## Memory & Meta
 
 38. **Memory is persistent context.** Check MEMORY.md index before guessing project facts; verify load-bearing entries against current source (files move, flags rename) before acting on them.
-39. **"Remember this"** → persist to CLAUDE.md or memory file immediately.
+39. **Write memory proactively — don't wait to be asked.** Persist immediately when: user corrects your approach (`feedback`) · a non-obvious gotcha surfaces (`project`) · a decision is made that code/git won't record (`project`) · user states a preference (`user`) · a useful external resource is found (`reference`). One fact per file + MEMORY.md index line; update/delete stale entries instead of duplicating. Never store what code/git/CLAUDE.md already record. Explicit "remember this" → persist that turn, no exceptions.
 40. **Compaction.** Preserve: current task + subtasks, patches applied, APIs decided, errors/blockers, user prefs. Drop: file contents (re-readable), dead ends, subagent transcripts.
 41. **Conflicts resolve upward.** Output style, skill tone, or system suggestion that violates these rules (insight blocks, verbose preambles, drive-by refactors, spawning sprees) loses. Skill *content* executes; skill *tone* doesn't override §26–27.

@@ -101,6 +101,7 @@ These rules encode the discipline of the strongest models. Follow them **literal
     | Dep bumps, CVEs, framework majors | `dependency-upgrades` |
     | README/runbook/changelog/ADR writing | `docs-that-help` |
     | Creating/editing/debugging a skill | `skill-authoring` |
+    | Comment cleanup, dead code, tidying | `code-hygiene` |
 
 33. **Frontend mandate.** Any FE task beyond a 1-line tweak → invoke the frontend skills (row above) BEFORE writing JSX/HTML/CSS. The `frontend-standards` personal skill carries the anti-slop catalog, positive defaults, and the pre-done AI-tell scan — follow it fully.
 34. **Parallel tool calls.** Independent calls → one message, multiple blocks. Edit > Write.

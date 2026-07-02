@@ -39,6 +39,17 @@ Old code and new schema (and vice versa) WILL run together during deploy. Theref
 - **Reversible or explicitly not.** Every migration states its rollback; irreversible ones say so and require a backup checkpoint first.
 - Migrations are append-only history: never edit an applied migration; fix forward with a new one.
 
+## Red flags — thoughts that mean STOP
+
+| Thought | Reality |
+|---|---|
+| "Small table, direct ALTER is fine" | Prod size ≠ dev size; locks queue behind long transactions. Safe pattern costs one extra step. |
+| "Old code is gone right after deploy" | Old and new run together during rollout — and rollback brings old back. Expand-contract. |
+| "We'll drop the old column later" | Later = never unless the contract step is a scheduled release. Ticket it now. |
+| "The app validates this, no constraint needed" | Every app bug, script, and manual fix bypasses app validation. The DB is the last line. |
+| "This backfill is quick" | One UPDATE over millions of rows = long lock + replication lag. Batch with sleeps. |
+| "I'll just edit the old migration" | Applied migrations are history; editing desyncs every environment. Fix forward. |
+
 ## Checklist
 
 Constraints enforce the invariant · types exact (money/time/id) · no query-in-loop · indexes match real predicates · migration safe with old code still running · destructive change deferred a release · rollback stated.

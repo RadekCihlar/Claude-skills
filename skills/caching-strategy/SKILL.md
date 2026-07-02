@@ -34,6 +34,17 @@ N replicas = N independent caches: inconsistent between pods, invalidation doesn
 
 Immutable assets: hashed filename + `Cache-Control: public, max-age=31536000, immutable`. HTML/API: `no-cache` (revalidate) or short max-age + `ETag`/`Last-Modified` for cheap 304s. `Vary` on what actually varies the response (`Accept-Language`, NOT `User-Agent`). Authenticated responses: `private`, or CDNs will share them.
 
+## Red flags — thoughts that mean STOP
+
+| Thought | Reality |
+|---|---|
+| "We'll invalidate on every write, no TTL needed" | Your invalidation WILL have a bug. TTL backstop always. |
+| "It's obviously slow, cache it" | No measurement = likely caching the wrong layer. Get the number first. |
+| "One key works for everyone" | Locale/user/version variance means someone sees someone else's data. |
+| "Just an in-memory map, keep it simple" | × N replicas = N inconsistent caches. Fine only for immutable data. |
+| "Hot key expiring is no big deal" | N simultaneous misses = origin stampede. Jitter, single-flight, or SWR. |
+| "We'll add a size bound later" | An unbounded cache is a memory leak with a nicer name. |
+
 ## Checklist
 
 Measured reason to cache · highest workable level · key includes all variance (user/locale/version) · TTL backstop + chosen invalidation path · stampede defense on hot keys · in-memory caches bounded · nothing auth/critical-freshness cached · metrics: hit rate + origin load visible.

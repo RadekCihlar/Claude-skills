@@ -33,6 +33,17 @@ Refactoring changes structure, never behavior. The moment you "improve" behavior
 - Scope creeping ("while I'm here…") → stop, note it, finish the stated scope.
 - "Improvement" makes the code longer AND harder to explain → the old code was fine; revert.
 
+## Red flags — thoughts that mean STOP
+
+| Thought | Reality |
+|---|---|
+| "While I'm here, I'll also fix…" | Scope creep is where breakage hides. Note it, finish the stated scope. |
+| "It's a pure refactor, tests can wait" | Untested restructuring is behavior-change roulette. Characterize first. |
+| "Tests are red, I'll fix everything at the end" | Red beyond one small step = flying blind. Revert to green, take a smaller step. |
+| "Refactor + behavior fix in one commit, it's related" | The reviewer can no longer verify "no behavior change". Split. |
+| "I'll rename the 30 call sites by hand" | Hand-editing bores you into a typo on file 27. Use the IDE/LSP tool. |
+| "A rewrite would be faster than refactoring" | Highest-risk move in software. Needs explicit sign-off + a strangler path. |
+
 ## Done means
 
 Same observable behavior (tests prove it) · every step was green · refactor isolated from behavior changes in history · no orphaned/half-migrated callers · scope sentence satisfied, nothing more.

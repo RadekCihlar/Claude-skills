@@ -30,6 +30,17 @@ During an incident you are not debugging — you are stopping harm. Root cause i
 - Action items: specific, owned, deadlined, and tracked to done — a postmortem with orphaned actions is theater. **Fix the class, not the instance**: the alert that would have caught it earlier, the rollback that would have been faster, the validation that would have blocked it.
 - Feed back into config: new alert thresholds (observability skill), new pipeline gate (cicd-releases), new runbook entry (docs).
 
+## Red flags — thoughts that mean STOP
+
+| Thought | Reality |
+|---|---|
+| "Let me understand the root cause first" | Users are bleeding while you science. Mitigate, then diagnose. |
+| "Can't prove the deploy caused it" | Correlated + safe rollback = roll back now. Proof is tomorrow's job. |
+| "I'll just hot-fix it directly in prod" | Unrecorded snowflake state seeds the next incident. Record + reconcile to IaC. |
+| "All hands — everyone try things" | Ten people restarting things is a second incident. One owner, assigned threads. |
+| "Graph dipped, we're done" | Verify recovery over a full cycle, then write down everything you touched. |
+| "We'll do the postmortem when things calm down" | Unwritten postmortem = same incident, rescheduled. |
+
 ## Checklist
 
 Mitigated before diagnosed · recent changes checked + reverted on suspicion · one owner, cadence comms · manual changes recorded + reconciled · recovery verified in metrics · postmortem blameless with owned actions.

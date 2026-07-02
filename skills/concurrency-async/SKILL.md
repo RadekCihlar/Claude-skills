@@ -36,6 +36,17 @@ Bounded queues + defined backpressure (block, shed, or spill — choose consciou
 
 Prefer high-level tools (coroutines, ExecutorService, CompletableFuture, java.util.concurrent collections/atomics) over raw `Thread`/`synchronized`. Visibility matters: unsynchronized non-volatile fields read by other threads may show stale values — use atomics/volatile/proper handoff. ThreadLocal + pooled threads/coroutines = leaked context bugs.
 
+## Red flags — thoughts that mean STOP
+
+| Thought | Reality |
+|---|---|
+| "This race is astronomically unlikely" | At 1k rps, one-in-a-million happens hourly. Design it out. |
+| "It passes my tests" | A single-threaded test proves scheduling luck, not safety. Stress it. |
+| "I'll add a mutex" | An in-process lock protects nothing at 2 replicas. Coordinate at the shared store. |
+| "A more careful check before writing fixes it" | The check-then-act gap remains, just narrower. Atomic op or constraint. |
+| "Fire-and-forget is fine here" | An unowned task fails silently and leaks. Give it a scope and an error owner. |
+| "A short sleep fixes the flakiness" | Sleep = the same race with a timer attached. Await the actual condition. |
+
 ## Verification
 
 Concurrency code gets a stress test (N workers hammering the invariant, assert it held) — a single-threaded unit test proves nothing. "Couldn't reproduce" means "didn't load it", not "fixed". If the invariant lives in the DB (unique, atomic update), the test is cheap and honest: fire concurrent requests, count the survivors.

@@ -85,6 +85,44 @@ git fetch origin && git checkout -f -t origin/main   # overwrites CLAUDE.md/skil
 
 **Optional companions:** install the [superpowers](https://github.com/obra/superpowers) plugin for the process skills the trigger table references. Without it those rows are inert; nothing breaks.
 
+## settings.json extras (copy-paste)
+
+`~/.claude/settings.json` is deliberately **not** tracked (it holds machine/account state), so these two pieces need a one-time paste per machine. Merge them into your existing file — don't replace it; if you have no `hooks` or `env` key yet, paste the blocks as-is inside the top-level `{ }`.
+
+**Memory enforcement after compaction.** When a long session compacts its context, this hook injects an instruction telling the model to persist durable decisions/gotchas/preferences to memory files before resuming — mechanical enforcement of CLAUDE.md rule 39, not model goodwill. (PreCompact can't do this: its output only reaches the debug log. `SessionStart` + `"compact"` matcher is the event whose stdout reaches the model.)
+
+```json
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'Context was just compacted. Before continuing the task: persist durable facts from this session not yet in memory - decisions code/git will not record, discovered gotchas, user corrections and preferences - one fact per file in the auto-memory directory plus a MEMORY.md index line (global CLAUDE.md rule 39). Then resume.'",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+**Always-on communication/build modes** (only if you use the caveman and ponytail plugins referenced in CLAUDE.md's Always-On Modes section — harmless otherwise):
+
+```json
+{
+  "env": {
+    "CAVEMAN_DEFAULT_MODE": "ultra",
+    "PONYTAIL_DEFAULT_MODE": "ultra"
+  }
+}
+```
+
+Verify after pasting: the file must still parse (`python -c "import json;json.load(open('settings.json'))"` or any JSON validator) — a malformed settings.json silently disables everything in it.
+
 ## Customizing
 
 - Edit `CLAUDE.md` for behavior you want in every session; keep it short — long files get skimmed by small models and every token is paid on every request.

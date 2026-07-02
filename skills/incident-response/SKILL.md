@@ -13,6 +13,7 @@ During an incident you are not debugging — you are stopping harm. Root cause i
 - **"What changed?" is the first question.** Recent deploy, flag flip, config change, dependency/upstream change, traffic shift, cert expiry, quota reset. Most incidents are self-inflicted and recent. Correlated with a change → revert it EVEN IF you can't prove causality yet; proof comes later.
 - Rollback hesitancy kills: if rollback is safe (expand-contract migrations make it safe), the bar is "might help", not "proven cause".
 - Can't revert? Reduce blast radius: feature flag off, degrade gracefully (serve cached/partial), shed load, isolate the failing dependency (open the circuit).
+- Failing at the pod/deploy level (CrashLoopBackOff, OOMKilled, Pending, unready endpoints) → ALSO load the `kubernetes-deploys` skill; its triage decision tree is the diagnosis path.
 
 ## During — discipline
 

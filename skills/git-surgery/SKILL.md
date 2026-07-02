@@ -11,7 +11,7 @@ Git almost never loses committed work — it loses track of it. Find it, point a
 
 - **`git reflog`** — every position HEAD has held. Find the SHA from before the mistake → `git branch rescue <sha>` (safe: creates a pointer, changes nothing) → inspect, then merge/cherry-pick/reset deliberately.
 - Lost commits after bad rebase/reset/amend → they're in reflog for ~90 days. Deleted branch → `git reflog` or `git fsck --lost-found`.
-- Uncommitted changes are the ONLY thing git can truly lose. Dropped stash → `git fsck --unreachable | grep commit` and inspect. Never-added file → git can't help; check editor local history.
+- Uncommitted changes are the ONLY thing git can truly lose. Dropped stash → `git fsck --unreachable` and inspect the listed commit objects (works on any shell — no pipe needed). Never-added file → git can't help; check editor local history.
 
 ## Undo decision table
 

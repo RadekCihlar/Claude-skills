@@ -78,6 +78,16 @@ These rules encode the discipline of the strongest models. Follow them **literal
     | Spec → plan | `superpowers:writing-plans` |
     | Plan → execute | `superpowers:executing-plans` |
     | CLAUDE.md changes | `claude-md-management:claude-md-improver` |
+    | Trust-boundary or hot-path code | `security-perf-preflight` |
+    | Unfamiliar codebase / unverified API | `repo-recon` |
+    | Endpoint/webhook/public interface | `api-design` |
+    | Schema/query/migration | `db-and-migrations` |
+    | Test design, flaky tests, coverage | `testing-strategy` |
+    | Restructuring working code | `refactoring-safely` |
+    | External calls, I/O, failure paths | `error-resilience` |
+    | Logging/metrics/tracing/alerts | `observability` |
+    | Public pages, meta, CWV, i18n SEO | `seo-technical` |
+    | Lost work, regression hunt, history fix | `git-surgery` |
 
 33. **Frontend mandate.** Any FE task beyond a 1-line tweak → invoke the frontend skills (row above) BEFORE writing JSX/HTML/CSS. The `frontend-standards` personal skill carries the anti-slop catalog, positive defaults, and the pre-done AI-tell scan — follow it fully.
 34. **Parallel tool calls.** Independent calls → one message, multiple blocks. Edit > Write.

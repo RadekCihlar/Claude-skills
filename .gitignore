@@ -1,0 +1,9 @@
+# Allowlist: ~/.claude is runtime state; version only the config that matters.
+# Everything ignored by default — settings, credentials, plugins, projects,
+# history, todos must never land in the repo.
+*
+!.gitignore
+!README.md
+!CLAUDE.md
+!skills/
+!skills/**

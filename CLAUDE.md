@@ -88,6 +88,18 @@ These rules encode the discipline of the strongest models. Follow them **literal
     | Logging/metrics/tracing/alerts | `observability` |
     | Public pages, meta, CWV, i18n SEO | `seo-technical` |
     | Lost work, regression hunt, history fix | `git-surgery` |
+    | Dockerfile/compose/image build | `docker-images` |
+    | k8s manifests/Helm, pod triage | `kubernetes-deploys` |
+    | Pipelines, rollout/rollback, flags | `cicd-releases` |
+    | Prod broken NOW, outage, postmortem | `incident-response` |
+    | System boundaries, ADR, build-vs-buy | `architecture-decisions` |
+    | Shared state, races, threads/coroutines | `concurrency-async` |
+    | Login, sessions/JWT, OAuth, RBAC, CSRF | `auth-and-identity` |
+    | Adding any cache, staleness bugs | `caching-strategy` |
+    | "It's slow", profiling, load tests | `performance-profiling` |
+    | CORS, proxies/XFF, TLS, LB timeouts | `http-networking` |
+    | Dep bumps, CVEs, framework majors | `dependency-upgrades` |
+    | README/runbook/changelog/ADR writing | `docs-that-help` |
 
 33. **Frontend mandate.** Any FE task beyond a 1-line tweak → invoke the frontend skills (row above) BEFORE writing JSX/HTML/CSS. The `frontend-standards` personal skill carries the anti-slop catalog, positive defaults, and the pre-done AI-tell scan — follow it fully.
 34. **Parallel tool calls.** Independent calls → one message, multiple blocks. Edit > Write.

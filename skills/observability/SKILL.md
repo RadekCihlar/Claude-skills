@@ -1,6 +1,6 @@
 ---
 name: observability
-description: Use when adding or reviewing logging, metrics, tracing, or alerts — what to log, at what level, structured fields, cardinality limits, and making failures diagnosable from telemetry alone.
+description: Use when adding or reviewing logging, metrics, tracing, alerts, dashboards, or SLOs/SLIs — what to log, at what level, structured fields, cardinality limits, and making failures diagnosable from telemetry alone.
 ---
 
 # Observability

@@ -1,6 +1,6 @@
 # Claude-skills
 
-A portable "work ethic" for [Claude Code](https://claude.com/claude-code): one global `CLAUDE.md` of always-on rules plus 25 lazy-loaded skills covering the full development lifecycle — architecture, backend, data, frontend, containers, Kubernetes, CI/CD, and production operations. The goal is that any model in Claude Code — Haiku, Sonnet, Opus — works with the precision, verification discipline, and honesty you'd expect from the strongest tier, on any project, in any language.
+A portable "work ethic" for [Claude Code](https://claude.com/claude-code): one global `CLAUDE.md` of always-on rules plus 32 lazy-loaded skills covering the full development lifecycle — architecture, backend, data, frontend, containers, Kubernetes, CI/CD, and production operations. The goal is that any model in Claude Code — Haiku, Sonnet, Opus — works with the precision, verification discipline, and honesty you'd expect from the strongest tier, on any project, in any language.
 
 ## What it does
 
@@ -49,6 +49,13 @@ The skills then raise the floor per domain — so a quick "add an endpoint" stil
 | `docs-that-help` | write READMEs/runbooks | reader-with-a-job docs, symptom-indexed runbooks, ADRs |
 | `skill-authoring` | grow this repo | house format, trigger-description craft, headless invocation probes |
 | `code-hygiene` | clean up comments/dead code | comment taxonomy, dead-code verification, sweep discipline |
+| `design-docs` | write HLD/LLD or document a system | forward + reverse design docs, grep-verified claims, Mermaid flows |
+| `architecture-review` | verify built code matches the design | doc-vs-code-vs-memory reconciliation, verdict table, drift fixes |
+| `reviewing-code` | review someone else's PR/diff | read-beyond-diff, verified findings, severity ladder, verdict-first |
+| `requirements-and-stories` | write stories/ACs or split an epic | vertical slices, sad-path ACs, walking skeleton, honest estimates |
+| `threat-modeling` | threat model a design | trust-boundary map, STRIDE, abuse cases, mitigations-with-owners |
+| `infra-as-code` | write Terraform/Pulumi/Ansible | state discipline, plan review, drift reconciliation, secrets-in-state |
+| `data-pipelines` | build ETL/batch/backfill jobs | idempotent re-runs, watermarks, quality gates, missed-run alerts |
 
 Process-level behavior (TDD loop, systematic debugging, brainstorming, verification-before-completion) comes from the excellent [superpowers](https://github.com/obra/superpowers) plugin, and the terse-communication / minimal-build modes referenced in `CLAUDE.md` come from the caveman and ponytail plugins. Everything in this repo works standalone if you skip those — the skill trigger table simply routes to what's installed.
 
@@ -81,7 +88,7 @@ git remote add origin https://github.com/RadekCihlar/Claude-skills.git
 git fetch origin && git checkout -f -t origin/main   # overwrites CLAUDE.md/skills only
 ```
 
-**Verify:** start a new Claude Code session and ask "which skills are available?" — the 25 above should be listed. Skills register at session start, so restart after changes (or run `/reload-skills` on Claude Code ≥ 2.1.152).
+**Verify:** start a new Claude Code session and ask "which skills are available?" — the 32 above should be listed. Skills register at session start, so restart after changes (or run `/reload-skills` on Claude Code ≥ 2.1.152).
 
 **Optional companions:** install the [superpowers](https://github.com/obra/superpowers) plugin for the process skills the trigger table references. Without it those rows are inert; nothing breaks.
 

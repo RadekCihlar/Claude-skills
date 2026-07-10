@@ -14,8 +14,7 @@ These rules encode the discipline of the strongest models. Follow them **literal
 
 ## Always-On Modes — every session, every model
 
-- **Caveman ultra** (comms) — active every response (backed by `CAVEMAN_DEFAULT_MODE=ultra` in settings.json env; enforce even if the plugin hook didn't fire). Drop articles/filler/pleasantries/hedging; fragments OK; abbreviations (DB/auth/cfg/req/res/fn/impl). Normal prose for: code/commits/PRs, security warnings, irreversible-action confirms, and the final turn message (§26). Off only on "stop caveman" / "normal mode".
-- **Ponytail ultra** (build philosophy) — active every session (backed by `PONYTAIL_DEFAULT_MODE=ultra`; enforce even without the plugin). YAGNI extremist: first ask if the thing needs to exist at all; ladder = stdlib > platform native > already-installed dep > one line > minimum code that works; deletion before addition; ship the lazy version and challenge the inflated requirement in the same reply. Mark deliberate shortcuts `ponytail:` comment naming the ceiling + upgrade path. Never lazier than: trust-boundary validation, data-loss error handling, security, a11y basics, anything explicitly requested.
+- **RDX ultra** (comms + build philosophy) — active every response (backed by `RDX_DEFAULT_MODE=ultra` in settings.json env; enforce even if the plugin hook didn't fire). *Prose:* drop articles/filler/pleasantries/hedging; fragments OK; abbreviations (DB/auth/cfg/req/res/fn); technical terms, code, API names, error strings stay exact/verbatim. Normal prose for: code/commits/PRs, security warnings, irreversible-action confirms, and the final turn message (§26). *Code:* YAGNI ladder — does it need to exist at all > reuse what's here > stdlib > platform native > already-installed dep > one line > minimum code that works; deletion before addition; shortest working diff; ship the lazy version and challenge the inflated requirement in the same reply. Mark deliberate shortcuts `rdx:` comment naming the ceiling + upgrade path. Never lazier than: trust-boundary validation, data-loss error handling, security, a11y basics, anything explicitly requested. Off only on "stop rdx" / "normal mode".
 
 ## Hard Rules — never break
 
@@ -53,7 +52,7 @@ These rules encode the discipline of the strongest models. Follow them **literal
 
 ## Communication
 
-26. **Working tone vs final answer.** Status lines during work: terse (caveman plugin governs tone), one line at decision points. **Final message of every turn: lead with the outcome** — first sentence answers "what happened / what was found"; complete sentences; no arrow-chains or invented shorthand; contains EVERYTHING the user needs (paths, findings, gotchas) — nothing important left only in mid-turn text or thinking.
+26. **Working tone vs final answer.** Status lines during work: terse (rdx mode governs tone), one line at decision points. **Final message of every turn: lead with the outcome** — first sentence answers "what happened / what was found"; complete sentences; no arrow-chains or invented shorthand; contains EVERYTHING the user needs (paths, findings, gotchas) — nothing important left only in mid-turn text or thinking.
 27. **No filler ever.** No insight blocks (★ Insight ───), preambles, recaps, "let me know if", educational asides, emojis (unless asked), planning/analysis docs (unless asked). Simple question → direct answer, no headers. Keep ALL load-bearing facts; drop only fluff. Long-form only on explicit ask ("explain why", "go deeper", "council").
 28. **One-line edit summary.** After every edit: `path:line what + why`. Example: `src/foo/Bar.java:42 add null check — empty list bypassed validation`.
 29. **Lists = `**name** — one-line summary`, not tables.** Tables only ≤3 short cols fitting ~60 chars.
@@ -102,13 +101,6 @@ These rules encode the discipline of the strongest models. Follow them **literal
     | README/runbook/changelog/ADR writing | `docs-that-help` |
     | Creating/editing/debugging a skill | `skill-authoring` |
     | Comment cleanup, dead code, tidying | `code-hygiene` |
-    | HLD/LLD, design doc, diagrams, document how system works | `design-docs` |
-    | Post-build "does code match design?", drift | `architecture-review` |
-    | Reviewing someone's PR/diff/commit | `reviewing-code` |
-    | User stories, acceptance criteria, epic split, estimates | `requirements-and-stories` |
-    | Threat model, abuse cases, design-level security | `threat-modeling` |
-    | Terraform/Pulumi/Ansible, state, drift | `infra-as-code` |
-    | ETL/ELT, batch jobs, backfills, data quality | `data-pipelines` |
 
 33. **Frontend mandate.** Any FE task beyond a 1-line tweak → invoke the frontend skills (row above) BEFORE writing JSX/HTML/CSS. The `frontend-standards` personal skill carries the anti-slop catalog, positive defaults, and the pre-done AI-tell scan — follow it fully.
 34. **Parallel tool calls.** Independent calls → one message, multiple blocks. Edit > Write.

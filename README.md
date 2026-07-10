@@ -57,7 +57,7 @@ The skills then raise the floor per domain — so a quick "add an endpoint" stil
 | `infra-as-code` | write Terraform/Pulumi/Ansible | state discipline, plan review, drift reconciliation, secrets-in-state |
 | `data-pipelines` | build ETL/batch/backfill jobs | idempotent re-runs, watermarks, quality gates, missed-run alerts |
 
-Process-level behavior (TDD loop, systematic debugging, brainstorming, verification-before-completion) comes from the excellent [superpowers](https://github.com/obra/superpowers) plugin, and the terse-communication / minimal-build modes referenced in `CLAUDE.md` come from the caveman and ponytail plugins. Everything in this repo works standalone if you skip those — the skill trigger table simply routes to what's installed.
+Process-level behavior (TDD loop, systematic debugging, brainstorming, verification-before-completion) comes from the excellent [superpowers](https://github.com/obra/superpowers) plugin, and the terse-communication + minimal-build mode referenced in `CLAUDE.md` (RDX ultra) comes from the [rdxmin](https://github.com/JayPokale/RDXmin) plugin — one ruleset that unifies zero-fluff prose with YAGNI-first code, plus a deterministic tool-output compressor. Everything in this repo works standalone if you skip it — the skill trigger table simply routes to what's installed.
 
 ## Setup
 
@@ -117,13 +117,12 @@ git fetch origin && git checkout -f -t origin/main   # overwrites CLAUDE.md/skil
 }
 ```
 
-**Always-on communication/build modes** (only if you use the caveman and ponytail plugins referenced in CLAUDE.md's Always-On Modes section — harmless otherwise):
+**Always-on efficiency mode** (only if you use the [rdxmin](https://github.com/JayPokale/RDXmin) plugin referenced in CLAUDE.md's Always-On Modes section — harmless otherwise):
 
 ```json
 {
   "env": {
-    "CAVEMAN_DEFAULT_MODE": "ultra",
-    "PONYTAIL_DEFAULT_MODE": "ultra"
+    "RDX_DEFAULT_MODE": "ultra"
   }
 }
 ```

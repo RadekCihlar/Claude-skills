@@ -1,6 +1,6 @@
 ---
 name: api-design
-description: Use when designing or extending any programmatic interface — HTTP/REST endpoints, RPC, webhooks, or a library's public API — or writing an OpenAPI/Swagger spec or API documentation. Covers naming, error shape, pagination, idempotency, versioning, and compatibility rules.
+description: Use when designing or extending any programmatic interface — HTTP/REST endpoints, RPC, webhooks, or a library's public API. Covers naming, error shape, pagination, idempotency, versioning, and compatibility rules.
 ---
 
 # API Design

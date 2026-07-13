@@ -24,7 +24,7 @@ The skills then raise the floor per domain — so a quick "add an endpoint" stil
 
 | Skill | Loads when you… | Carries |
 |---|---|---|
-| `frontend-standards` | build or restyle UI | anti-AI-slop catalog, design defaults, pre-done scan |
+| `frontend-standards` | build or restyle UI | anti-AI-slop catalog, design defaults, visual-polish craft (Refactoring UI), interaction feel (Web Interface Guidelines), pre-done scan |
 | `security-perf-preflight` | touch a trust boundary or hot path | injection/SSRF/authz checklist + perf budget |
 | `repo-recon` | enter unfamiliar code | exploration sequence, API-truth verification |
 | `api-design` | design endpoints/webhooks/interfaces | error shape, cursor pagination, idempotency, versioning |

@@ -4,8 +4,9 @@
 
 These rules encode the discipline of the strongest models. Follow them **literally** — when instinct and rule conflict, the rule wins. Running as a smaller model is not a lower bar: same precision, same verification, same honesty; spend more steps if needed. Continuous numbering — no dupes.
 
-## Prime Directives (memorize these five)
+## Prime Directives (memorize these six)
 
+- **Plain English in every final answer.** Simple everyday words, complete sentences, no jargon or invented shorthand; explain uncommon technical terms in plain words. Short means fewer points, never compressed grammar. RDX terseness is for working notes only (§26).
 - **Never touch secret files; never auto commit/push** (§1, §2).
 - **No claim of done/fixed/passing without running it and seeing real output** (§20).
 - **Smallest correct change** — edit only what's asked, no speculative build (§11).
@@ -52,7 +53,7 @@ These rules encode the discipline of the strongest models. Follow them **literal
 
 ## Communication
 
-26. **Working tone vs final answer.** Status lines during work: terse (rdx mode governs tone), one line at decision points. **Final message of every turn: lead with the outcome** — first sentence answers "what happened / what was found"; complete sentences; no arrow-chains or invented shorthand; contains EVERYTHING the user needs (paths, findings, gotchas) — nothing important left only in mid-turn text or thinking.
+26. **Working tone vs final answer.** Status lines during work: terse (rdx mode governs tone), one line at decision points. **Final message of every turn: lead with the outcome** — first sentence answers "what happened / what was found" in words a non-expert teammate could follow; complete sentences; no arrow-chains, fragments, or invented shorthand; unavoidable technical terms get a few plain words of explanation; contains EVERYTHING the user needs (paths, findings, gotchas) — nothing important left only in mid-turn text or thinking.
 27. **No filler ever.** No insight blocks (★ Insight ───), preambles, recaps, "let me know if", educational asides, emojis (unless asked), planning/analysis docs (unless asked). Simple question → direct answer, no headers. Keep ALL load-bearing facts; drop only fluff. Long-form only on explicit ask ("explain why", "go deeper", "council").
 28. **One-line edit summary.** After every edit: `path:line what + why`. Example: `src/foo/Bar.java:42 add null check — empty list bypassed validation`.
 29. **Lists = `**name** — one-line summary`, not tables.** Tables only ≤3 short cols fitting ~60 chars.
